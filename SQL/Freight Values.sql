@@ -113,3 +113,44 @@ SUM(CASE WHEN freight_percentage_of_price > 0.75 AND freight_percentage_of_price
 SUM(CASE WHEN freight_percentage_of_price > 1.0005 AND freight_percentage_of_price < 2.002597403 THEN number_of_orders ELSE NULL END) AS _100_to_200,	
 SUM(CASE WHEN freight_percentage_of_price > 2.002597403 THEN number_of_orders ELSE NULL END) AS _200_and_more	
 FROM main_data	
+
+5. What are product categories by revenue - pareto?
+
+WITH top_categories AS (	
+	
+SELECT	
+translation.string_field_1 AS category_name,	
+SUM(price + freight_value) AS category_revenue	
+	
+	
+FROM `olist_db.olist_order_items_dataset` AS order_item	
+JOIN `olist_db.olist_products_dataset` AS products	
+ON order_item.product_id = products.product_id	
+JOIN `olist_db.product_category_name_translation` As translation	
+ON translation.string_field_0 = products.product_category_name	
+	
+GROUP BY 1	
+ORDER BY 2 DESC	
+),	
+	
+cumulative_revenue AS (	
+SELECT	
+category_name,	
+category_revenue,	
+SUM(category_revenue) OVER (ORDER BY category_revenue DESC) AS running_total,	
+SUM(category_revenue) OVER () AS total	
+	
+FROM top_categories	
+)	
+	
+SELECT	
+category_name,	
+category_revenue,	
+running_total,	
+total,	
+running_total / total AS percent_of_total	
+	
+	
+FROM cumulative_revenue	
+	
+ORDER BY 2 DESC;	
