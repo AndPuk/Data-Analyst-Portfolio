@@ -1,5 +1,4 @@
-1. What is freight value correlation to other variables?
-   What freight value correlation to price?
+1. What is freight value correlation to other variables and what is freight value correlation to price?
 
 SELECT	
 items.freight_value,	
@@ -16,8 +15,7 @@ ON items.product_id = products.product_id
 WHERE products.product_weight_g IS NOT NULL	
 AND items.freight_value > 0	
 
-2. What is average freight values and average price timeline?
-   What is average freight value and number of orders timeline?
+2. What is the average freight value and average price timeline and what is the average freight value and number of orders timeline?
 	
 SELECT	
 DATE(DATE_TRUNC(orders.order_purchase_timestamp,WEEK)) AS purchase_week,	
