@@ -154,3 +154,59 @@ running_total / total AS percent_of_total
 FROM cumulative_revenue	
 	
 ORDER BY 2 DESC;	
+
+6. What are the 10 top product categories by revenue freight value over time by category and what is freight value versus number of orders by category?
+
+WITH t1 AS (SELECT
+DATE(DATE_TRUNC(orders.order_purchase_timestamp,WEEK)) AS purchase_week,
+translation.string_field_1 AS category_name,
+COUNT(orders.order_id) AS number_of_orders,
+SUM(payments.payment_value)/COUNT(orders.order_id) AS avg_order_value,
+AVG(items.freight_value) AS avg_freight_value,
+AVG(items.price) AS avg_price,
+AVG(products.product_weight_g) AS avg_weight_g
+
+
+
+FROM `olist_db.olist_products_dataset` AS products
+JOIN `olist_db.olist_order_items_dataset` AS items
+ON products.product_id = items.product_id
+JOIN `olist_db.olist_orders_dataset` AS orders
+ON items.order_id = orders.order_id
+JOIN `olist_db.olist_order_payments_dataset` AS payments
+ON orders.order_id = payments.order_id
+JOIN `olist_db.product_category_name_translation` As translation
+ON translation.string_field_0 = products.product_category_name
+
+WHERE order_status != 'canceled'
+AND order_status != 'unavailable'
+AND order_purchase_timestamp >= '2017-01-05'
+
+
+GROUP BY
+purchase_week,
+category_name
+
+ORDER BY purchase_week ASC)
+
+
+SELECT *
+
+FROM t1
+
+WHERE category_name = 'health_beauty'
+OR category_name = 'watches_gifts'
+OR category_name = 'bed_bath_table'
+OR category_name = 'sports_leisure'
+OR category_name = 'computers_accessories'
+OR category_name = 'furniture_decor'
+OR category_name = 'housewares'
+OR category_name = 'cool_stuff'
+OR category_name = 'auto'
+OR category_name = 'garden_tools'
+OR category_name = 'toys'
+OR category_name = 'baby'
+OR category_name = 'perfumery'
+OR category_name = 'telephony'
+OR category_name = 'office_furniture'
+OR category_name = 'stationery'
