@@ -24,6 +24,8 @@
 
   The hypothesis cannot be rejected because freight values after a certain value level start to discourage customers from making purchases
 
+7. Insights
+
   Product weight has the highest impact on freight value
   After freight value reaches 25% of the overall product price it starts to negatively affect sales
   Freight values positively correlate with prices
@@ -34,7 +36,7 @@
   Out of the 20% most revenue-generating product categories lowest average freight values generate the highest number of orders
   Geographical location has an impact on sales: the highest average freight value by customer & seller states have the lowest number of orders
 
-7. Recommendations:
+8. Recommendations:
 
   Freight value estimation should be improved to reduce shipping costs because freight value trends do not correspond to overall trends in product pricing and the number of orders.
   Potential improvement could be achieved by addressing the unequal geographical distribution of customers by opening more seller distribution centers outside the San Paulo urban area.
