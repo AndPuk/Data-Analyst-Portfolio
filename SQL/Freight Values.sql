@@ -1,3 +1,5 @@
+1. Freight value correlation to other variables and freight value correlation to price
+
 SELECT	
 items.freight_value,	
 items.price,	
