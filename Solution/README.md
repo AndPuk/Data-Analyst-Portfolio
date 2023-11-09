@@ -15,12 +15,12 @@
 
   Does higher freight value reduces sales?
 
-  Counterfactual hypothesis
+5. Counterfactual hypothesis
 
   Lower freight values increases sales
 
 
-Conclusion
+6. Conclusion
 
   Hypothesis cannot be rejected because freight values after certain value level start to discourage customers to make purchases
 
@@ -34,7 +34,7 @@ Conclusion
   Out the 20% most revenue generating product categories lowest average feight values generates highest number of orders
   Geographical location has impact on sales: highest average freight value by customer & seller states has lowest number of orders
 
-Recommendations:
+7. Recommendations:
 
   Freight value estimation should be improved in order to reduce shipping cost, because freight value trends does not correspond to overall trends in product pricing and number of orders.
   Potential improvement could be achieved by addressing unequal geographical distribution of customers by opening more distribution centers outside San Paulo urban area.
