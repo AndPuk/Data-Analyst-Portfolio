@@ -210,3 +210,99 @@ OR category_name = 'perfumery'
 OR category_name = 'telephony'
 OR category_name = 'office_furniture'
 OR category_name = 'stationery'
+
+7. What are the average freight value and number of orders by customer states and what are the average freight value and number of orders by sellers states?
+
+WITH full_names AS (
+SELECT
+
+AVG(items.freight_value) AS avg_freight_value,
+COUNT(items.order_id) AS number_of_orders,
+sellers.seller_state,
+
+CASE WHEN sellers.seller_state = 'SP' THEN 'São Paulo'
+WHEN sellers.seller_state = 'SE' THEN 'Sergipe'
+WHEN sellers.seller_state = 'SC' THEN 'Santa Catarina'
+WHEN sellers.seller_state = 'RS' THEN 'Rio Grande do Sul'
+WHEN sellers.seller_state = 'RO' THEN 'Rondônia'
+WHEN sellers.seller_state = 'RN' THEN 'Rio Grande do Norte'
+WHEN sellers.seller_state = 'RJ' THEN 'Rio de Janeiro'
+WHEN sellers.seller_state = 'PR' THEN 'Paraná'
+WHEN sellers.seller_state = 'PI' THEN 'Piauí'
+WHEN sellers.seller_state = 'PE' THEN 'Pernambuco'
+WHEN sellers.seller_state = 'PB' THEN 'Paraíba'
+WHEN sellers.seller_state = 'PA' THEN 'Pará'
+WHEN sellers.seller_state = 'MT' THEN 'MatoGrosso'
+WHEN sellers.seller_state = 'MS' THEN 'MatoGrosso do Sul'
+WHEN sellers.seller_state = 'MG' THEN 'Minas Gerais'
+WHEN sellers.seller_state = 'MA' THEN 'Maranhão'
+WHEN sellers.seller_state = 'GO' THEN 'Goiás'
+WHEN sellers.seller_state = 'ES' THEN 'Espírito Santo'
+WHEN sellers.seller_state = 'DF' THEN 'Distrito Federal'
+WHEN sellers.seller_state = 'CE' THEN 'Ceará'
+WHEN sellers.seller_state = 'BA' THEN 'Bahia'
+WHEN sellers.seller_state = 'AM' THEN 'Amazonas'
+END AS seller_state_fullname,
+
+customers.customer_state,
+
+CASE WHEN customers.customer_state = 'TO' THEN 'Tocantins'
+WHEN customers.customer_state = 'SP' THEN 'São Paulo'
+WHEN customers.customer_state = 'SE' THEN 'Sergipe'
+WHEN customers.customer_state = 'SC' THEN 'Santa Catarina'
+WHEN customers.customer_state = 'RS' THEN 'Rio Grande do Sul'
+WHEN customers.customer_state = 'RR' THEN 'Roraima'
+WHEN customers.customer_state = 'RO' THEN 'Rondônia'
+WHEN customers.customer_state = 'RN' THEN 'Rio Grande do Norte'
+WHEN customers.customer_state = 'RJ' THEN 'Rio de Janeiro'
+WHEN customers.customer_state = 'PR' THEN 'Paraná'
+WHEN customers.customer_state = 'PI' THEN 'Piauí'
+WHEN customers.customer_state = 'PE' THEN 'Pernambuco'
+WHEN customers.customer_state = 'PB' THEN 'Paraíba'
+WHEN customers.customer_state = 'PA' THEN 'Pará'
+WHEN customers.customer_state = 'MT' THEN 'MatoGrosso'
+WHEN customers.customer_state = 'MS' THEN 'MatoGrosso do Sul'
+WHEN customers.customer_state = 'MG' THEN 'Minas Gerais'
+WHEN customers.customer_state = 'MA' THEN 'Maranhão'
+WHEN customers.customer_state = 'GO' THEN 'Goiás'
+WHEN customers.customer_state = 'ES' THEN 'Espírito Santo'
+WHEN customers.customer_state = 'DF' THEN 'Distrito Federal'
+WHEN customers.customer_state = 'CE' THEN 'Ceará'
+WHEN customers.customer_state = 'BA' THEN 'Bahia'
+WHEN customers.customer_state = 'AP' THEN 'Amapá'
+WHEN customers.customer_state = 'AM' THEN 'Amazonas'
+WHEN customers.customer_state = 'AL' THEN 'Alagoas'
+WHEN customers.customer_state = 'AC' THEN 'Acre'
+
+END AS customer_state_fullname
+
+FROM `olist_db.olist_orders_dataset` AS orders
+JOIN `olist_db.olist_customesr_dataset` AS customers
+ON orders.customer_id = customers.customer_id
+JOIN `olist_db.olist_order_items_dataset` AS items
+ON orders.order_id = items.order_id
+JOIN `olist_db.olist_sellers_dataset` AS sellers
+ON items.seller_id = sellers.seller_id
+
+WHERE
+orders.order_purchase_timestamp >= '2017-01-01'
+
+GROUP BY
+sellers.seller_state,
+customers.customer_state,
+seller_state_fullname,
+customer_state_fullname
+
+)
+
+SELECT
+
+avg_freight_value,
+number_of_orders,
+customer_state_fullname
+
+FROM full_names
+
+WHERE customer_state_fullname = 'Rio Grande do Sul'
+
+ORDER BY 1 DESC
