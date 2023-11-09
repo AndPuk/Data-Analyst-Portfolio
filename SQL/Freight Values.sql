@@ -155,7 +155,7 @@ FROM cumulative_revenue
 	
 ORDER BY 2 DESC;	
 
-6. What are the 10 top product categories by revenue freight value over time by category and what is freight value versus number of orders by category?
+6. What are the 10 top product categories by revenue freight value over time by category?  What are  product category price brands by freight value? What is freight value versus number of orders by category?
 
 WITH t1 AS (SELECT
 DATE(DATE_TRUNC(orders.order_purchase_timestamp,WEEK)) AS purchase_week,
