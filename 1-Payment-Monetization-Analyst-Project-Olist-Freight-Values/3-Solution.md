@@ -1,10 +1,6 @@
-1. Theory
-   
-Freight value has an impact on a customer's decision to buy a product or not
+1. Theory:   Freight value has an impact on a customer's decision to buy a product or not
 
-3. Hypothesis
-   
-High freight value reduces sales
+3. Hypothesis:   High freight value reduces sales
 
 5. Metrics
 Linear regression of freight values variables, freight values segmentation, freight values, and price correlation, freight values trends over time, product category by revenue - pareto, product categories price brands
