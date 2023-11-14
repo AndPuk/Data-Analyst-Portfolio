@@ -20,9 +20,9 @@ Lower freight values increase sales.
 
 6. Insights
 
-Product weight has the highest impact on freight value;
+a) Product weight has the highest impact on freight value;
 
-After freight value reaches 25% of the overall product price it starts to negatively affect sales;
+b) After freight value reaches 25% of the overall product price it starts to negatively affect sales;
 
 Freight values positively correlate with prices;
 
