@@ -1,1 +1,1 @@
-
+I am a marketing analyst in a company specializing in an omnichannel marketing automation platform for e-commerce businesses with email marketing at the core. I have a task from your marketing manager to identify the overall trends of all marketing campaigns on your e-commerce site. She is particularly interested in finding out if users tend to spend more time on your website on certain weekdays and how that behavior differs across campaigns.
