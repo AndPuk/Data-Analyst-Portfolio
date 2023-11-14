@@ -24,19 +24,19 @@ a) Product weight has the highest impact on freight value;
 
 b) After freight value reaches 25% of the overall product price it starts to negatively affect sales;
 
-Freight values positively correlate with prices;
+c) Freight values positively correlate with prices;
 
-Over time overall freight values increase followed by the number of orders, while prices decrease;
+d) Over time overall freight values increase followed by the number of orders, while prices decrease;
 
-20% of product categories generate 80% of revenue;
+e) 20% of product categories generate 80% of revenue;
 
-Out of the 20% most revenue-generating product categories office furniture has the highest average freight value;
+f) Out of the 20% most revenue-generating product categories office furniture has the highest average freight value;
 
-Over time the 20% of most revenue-generating product category's freight values increase;
+g) Over time the 20% of most revenue-generating product category's freight values increase;
 
-Out of the 20% of most revenue-generating product categories lowest average freight values generate the highest number of orders;
+h) Out of the 20% of most revenue-generating product categories lowest average freight values generate the highest number of orders;
 
-Geographical location has an impact on sales: the highest average freight value by customer & seller states have the lowest number of orders.
+i) Geographical location has an impact on sales: the highest average freight value by customer & seller states have the lowest number of orders.
 
 7. Conclusion
 
