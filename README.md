@@ -10,6 +10,3 @@ I have also included my work in the programming language SQL. These projects sho
 
 In addition to my technical skills, I pride myself on my critical thinking and problem-solving abilities. I can approach data analysis with a strategic mindset, and identify key issues and opportunities in the data.
 
-My data analytics skills and experience make me an ideal candidate for any data analyst role. I hope you find my portfolio to be informative and engaging, and I welcome any opportunity to discuss my qualifications further with you.
-
-Thank you for your time, I look forward to hearing from you soon.
